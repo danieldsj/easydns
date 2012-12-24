@@ -3,6 +3,8 @@ import urllib2
 import sys
 import base64
 
+# This is a test comment
+
 try:
     username = sys.argv[1]
     password = sys.argv[2]
@@ -12,8 +14,9 @@ try:
        "hostname=%s&" % hostname + \
        "myip=1.1.1.1"
 except:
-    pass
-
+    print 'Usage: %s <username> <password> \
+        <dynamic dns hostname>' % sys.argv[0] 
+    sys.exit()
 
 try:
     request = urllib2.Request(url)
@@ -26,4 +29,4 @@ try:
 except:
     print 'Usage: %s <username> <password> \
         <dynamic dns hostname>' % sys.argv[0] 
-
+    sys.exit()
